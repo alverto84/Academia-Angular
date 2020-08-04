@@ -6,9 +6,10 @@ import { ExpressionStatement } from '@angular/compiler';
 import { ExamenesComponent } from './components/examenes/examenes.component';
 
 const routes: Routes = [
-  {path : "alumnos", component : AlumnosComponent},
-  {path : "cursos", component : CursosComponent},
-  {path : "examenes", component : ExamenesComponent}
+  {path : '', pathMatch : 'full', redirectTo : 'cursos'},
+  {path : 'alumnos', component : AlumnosComponent},
+  {path : 'cursos', component : CursosComponent},
+  {path : 'examenes', component : ExamenesComponent}
 ];
 
 @NgModule({
