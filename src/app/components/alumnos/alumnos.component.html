@@ -26,5 +26,11 @@
                 </tr>
             </tbody>
         </table>
+        <mat-paginator 
+            [length]="totalRegistros"
+            [pageSize]="totalPorPagina"
+            [pageIndex]="paginaActual"
+            [pageSizeOptions]="pageSizeOptions">
+        </mat-paginator>
     </div>
 </div>

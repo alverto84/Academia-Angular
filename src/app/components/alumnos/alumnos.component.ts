@@ -13,10 +13,23 @@ export class AlumnosComponent implements OnInit {
   titulo = 'Listado de alumnos';
   alumnos: Alumno[];
 
+  totalRegistros = 0;
+  paginaActual = 0;
+  totalPorPagina = 4;
+  pageSizeOptions: number[] = [3, 5, 10, 25, 100];
+
+
   constructor(private service: AlumnoService) { }
 
   ngOnInit(): void {
-    this.service.listar().subscribe(alumnos => this.alumnos = alumnos);
+    const paginaActual = this.paginaActual.toString();
+    const totalPorPagina = this.totalPorPagina.toString();
+    this.service.listarPaginas(paginaActual, totalPorPagina).
+    subscribe(p => 
+    {
+        this.alumnos = p.content as Alumno[];
+        this.totalRegistros = p.totalElements as number;
+    });
   }
 
   public eliminar(alumno: Alumno): void {
