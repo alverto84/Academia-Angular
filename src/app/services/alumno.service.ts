@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Alumno } from '../models/alumno';
-import { Asignatura } from '../models/asignatura';
 
 @Injectable({
   providedIn: 'root'
@@ -19,8 +18,8 @@ export class AlumnoService {
   }
   public listarPaginas(page: string, size: string): Observable<any>{
     const params = new HttpParams()
-    params.set('page', page);
-    params.set('size', size);
+    .set('page', page)
+    .set('size', size);
     return this.http.get<any>(`${this.baseEndPoint}/pagina`, {params: params});
   }
   public ver(id: number): Observable<Alumno>{
