@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Generic } from '../models/generic';
 
 
-export abstract class CommonService<E> {
+export abstract class CommonService<E extends Generic> {
 
   protected baseEndPoint: string;
   protected cabeceras: HttpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
