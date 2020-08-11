@@ -1,9 +1,10 @@
-import { OnInit } from '@angular/core';
+import { OnInit, Directive } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import Swal from 'sweetalert2';
-import { CommonService } from '../SERVICES/common.service';
+import { CommonService } from '../services/common.service';
 import { Generic } from '../models/generic';
 
+@Directive()
 export abstract class CommonFormComponent<E extends Generic, S extends CommonService<E>> implements OnInit {
 
   titulo: string;
